@@ -3,9 +3,12 @@ on:
   pull_request:
     types:
       - opened
-  workflow_dispatch:    
+  workflow_dispatch:
+  push: 
+    branches:
+      - main    
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Output event data
@@ -18,5 +21,3 @@ jobs:
         run: npm run test
       - name: Build code
         run: npm run build
-      - name: Deploy project
-        run: echo "Deploying..."
